@@ -1,0 +1,43 @@
+/* /* @import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+  background-color: #111827;
+  color: #f3f4f6;
+  font-family: 'Inter', sans-serif;
+} */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  /* Set the default cursor for the entire app */
+  html, body {
+    cursor: default;
+    @apply bg-[#faf9f6] text-[#1c1c1c] font-sans;
+  }
+
+  /* 1. Prevent the typing 'I-beam' on containers and white space */
+  div, section, header, nav, main {
+    cursor: default;
+  }
+
+  /* 2. Fix for the specific cursor seen in image_468f44.png */
+  /* This prevents text selection in your layout containers */
+  .flex, .grid {
+    user-select: none;
+  }
+
+  /* 3. Ensure buttons and links still show the pointer finger */
+  button, a, [role="button"] {
+    cursor: pointer !important;
+  }
+
+  /* 4. Only allow the typing cursor on actual inputs */
+  input, textarea, [contenteditable="true"] {
+    cursor: text !important;
+    user-select: text;
+  }
+}
